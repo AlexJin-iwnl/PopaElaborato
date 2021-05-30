@@ -1,0 +1,31 @@
+.col-md-4{
+width:29vw;
+height:33vh;
+margin:5px;
+padding:20px;
+border: 1px dotted purple;
+background-color:aqua;
+font-weight: bold;
+}
+.addAndDelete{
+    background-color: #f44336;
+    border: none;
+  color: white;
+  padding: 12px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 12px;
+}
+#logOut{
+    background-color: #f44336;
+    border: none;
+  color: white;
+  padding: 12px 23px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 8px;
+}

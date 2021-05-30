@@ -1,0 +1,42 @@
+$query = "
+            SELECT username, password
+            FROM users WHERE username= ?
+        ";
+        //$query2="SELECT ruolo FROM users WHERE username='$username'";
+        $query3="SELECT ruolo FROM users WHERE username = ? ";
+        $stmt=mysqli_stmt_init($connessione);
+        if(mysqli_stmt_prepare($stmt,$query3)){
+            mysqli_stmt_bind_param($stmt,"s",$_POST["username"]);
+            if(!mysqli_stmt_execute($stmt)){
+                $error=mysqli_stmt_error($stmt);
+            }
+        }
+        $arrayRuolo=mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
+        if($arrayRuolo != NULL){
+            $ruolo=$arrayRuolo["ruolo"];
+        }
+        //mysqli_stmt_close($stmt);
+        $stmt2=mysqli_stmt_init($connessione);
+        if(mysqli_stmt_prepare($stmt2,$query)){
+            mysqli_stmt_bind_param($stmt2,"s",$_POST["username"]);
+            if(!mysqli_stmt_execute($stmt2)){
+                $error=mysqli_stmt_error($stmt2);
+            }
+        }
+        $array=mysqli_fetch_assoc(mysqli_stmt_get_result($stmt2));
+        print_r($array);
+        if($array != NULL){
+            if ($array["username"]!=$username || password_verify($password, $array['password']) === false) {
+                $conta=1;
+            }  
+        }
+
+
+
+
+
+
+                            $query = "
+                        INSERT INTO users (username,password,email,ruolo)
+                        VALUES ('$isUsernameValid', '$password_hash','$email','$ruolo')
+                    ";
